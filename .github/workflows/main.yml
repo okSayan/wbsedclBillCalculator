@@ -23,7 +23,7 @@ jobs:
       - name: Compile Java program
         run: |
           mkdir -p out
-          javac -d out src/com/example/Calculator.java
+          javac -d out com/example/Calculator.java
 
       - name: Copy slabs.txt and input.txt to output directory
         run: |
