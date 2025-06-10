@@ -16,7 +16,7 @@ public class Calculator {
         List<double[]> slabRates = loadSlabRates("slabs.txt");
         double billAmount = calculateBill(myWatt, slabRates);
         System.out.println("\n\n\nYour: KWh: "+myWatt);
-        System.out.println("\nYour estimated (Energy Charge) is: \t" + billAmount);
+        System.out.println("Your estimated (Energy Charge) is: \t" + "₹" + billAmount);
         System.out.println("Actual bill is subject to other factors like (Meter Charge, Govt. Subsidies, Adjustments, etc.) This program is just to see if the (Energy Charge) is correct or not.");
     }
 
