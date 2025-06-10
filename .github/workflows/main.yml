@@ -1,0 +1,35 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Show directory structure for debug
+        run: ls -R
+
+      - name: Compile Java program
+        run: |
+          mkdir -p out
+          javac -d out src/com/example/Calculator.java
+
+      - name: Copy slabs.txt to output directory
+        run: cp slabs.txt out/
+
+      - name: Run Java program with test input
+        run: echo "500" | java -cp out com.example.Calculator
